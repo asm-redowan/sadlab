@@ -15,7 +15,7 @@
         mysqli_query($conn,"DELETE FROM appointment where p_nid = '$pid' and d_nid = '$did'");
         //////////
 
-        mysqli_query($conn,"Insert INTO prescription(p_nid,d_nid,childbirth_id) values('$pid','$did','$childbirth_id')");
+        mysqli_query($conn,"Insert INTO prescription(p_nid,d_nid,childbirth_id,prescription_date) values('$pid','$did','$childbirth_id',CURRENT_DATE)");
         $query = mysqli_query($conn,"select max(prescription_id) as p from prescription where p_nid = '$pid' and d_nid = '$did'");
         $prescription_id = mysqli_fetch_array($query);
         $preid = $prescription_id['p'];
